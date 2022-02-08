@@ -122,11 +122,11 @@ end
 
 % ----------------------------------------------------------------------------------%
 %-------------------------------------ExoSup----------------------------------------%
+%-----------------------------------------------------------------------------------%
 
 
-
-% Question 1 - Test primalite // On peut faire aussi une version avec local in
-
+% ------------- Question 1 - Test primalite // On peut faire aussi une version avec local in -------%
+ 
 declare 
 fun {PremierAux M K N}
     if K == M-1 then true
@@ -170,12 +170,12 @@ local
 end
 
 
-% Question 2 Fibonnacci1
+% ---------------------------------Question 2 Fibonnacci1-------------------------%
 
 % Pour n = 1, 1 appel. Pour n = 4, 9 appels. Pour n = 5, 15 appels.
 % Pour n, on trouve un nombre d'appel equivalent à 2n-1 --> Algo en O(n)
 
-% Question 3 
+% ------------------------------------Question 3 ----------------------------------------%
 declare 
 local 
     fun {FibHelper N Acc1 Acc2}   % Ici le double accumulateur nous permet de garder en mémoire
@@ -208,7 +208,7 @@ local
 end
 
 
-% Question 4
+% ----------------------------------------Question 4 ------------------------------------%
 
 declare 
 fun {PGCD M N}
@@ -228,7 +228,7 @@ end
 
 
 
-% Question 5 
+% ---------------------------------------Question 5 -------------------------------------------%
 
 declare 
 fun {Summer N Acc}
@@ -254,7 +254,7 @@ end
 
 
 
- % Question 6 (On regarde tous les diviseurs sans reste de la longueur du carré)
+ %-------------------- Question 6 (On regarde tous les diviseurs sans reste de la longueur du carré)---------------------%
 
  
 
