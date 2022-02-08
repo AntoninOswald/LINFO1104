@@ -1,24 +1,12 @@
-declare 
-fun {Fact1 N}
-    if N == 0 then 1 else N*{Fact1 N-1} end
-end
 
-% La seconde partie prend moins de mémoire
+%-------------------------------------------------------------------------------%
+%---------- Exercices : Programmation récursive avec des entier-----------------%
+%-------------------------------------------------------------------------------%
 
 
-declare 
-fun {FactAux N Acc}
-    if N =< 1 then Acc else {FactAux N-1 Acc*N} end % Concept des 
-                                                    % vases communiquants
-end
-
-fun {Fact N}
-    {FactAux N 1}
-end
-
-%{Browse {Fact 4}}
 
 
+%-----------------------Question 1 ---------------------------------------------%
 declare
 fun {Sum N}
     if N == 1 then 1 else ((N*N) + {Sum N-1}) end
@@ -29,15 +17,32 @@ fun {SumAcc N Acc}
     if N==0 then Acc else {SumAcc N-1 Acc+N*N}end 
 end
 
-% Ici le Acc doit être initialiser à 0
+% Ici le Acc doit être initialisé à 0
+
+%On peut simplement appeler Sum, et initialiser le Acc dans la fonction sum en elle-même
 
 
-%{Browse {SumAcc 6 0}}
+declare 
+local 
+    fun {SumAcc N Acc}
+        if N==0 then Acc else {SumAcc N-1 Acc+N*N}end 
+    end 
+in
+    fun {Sum2 N}
+        {SumAcc N 0}
+    end
+end
+
+%----------------------Question 2----------------------------------------------%
+
 
 declare
 fun {MirrorAcc N Acc}
-    if N > 0 then {MirrorAcc (N div 10) ((Acc*10) + (N mod 10))} else Acc end % https://www.geeksforgeeks.org/write-a-program-to-reverse-digits-of-a-number/
+    if N > 0 then {MirrorAcc (N div 10) ((Acc*10) + (N mod 10))} else Acc end 
 end
+
+% https://www.geeksforgeeks.org/write-a-program-to-reverse-digits-of-a-number/
+%Une solution est donnée ci-dessus
 
 declare
 fun {Mirror N}
@@ -45,24 +50,24 @@ fun {Mirror N}
 end
 
 
-%{Browse {Mirror 54321}}
+%-------------------------------Question 3-----------------------------------%
 
 
 
 
-% Partie 2 Question 3
+
 
 declare
 fun {Foo N}
     if N<10 then 1
-    else 1+{Foo (N div 10)}
+    else 1+{Foo (N div 10)} %Cette fonction compte le nombre de digits d'un entier
     end
 end
 
 
 
 
-%Partie 2 Question 4
+% ----------------------Question4--------------------------------%
 
 
 declare
@@ -83,7 +88,7 @@ end
                     % moins de mémoire.
 
 
-% Partie 2 question 5 On donne un exemple de procédure
+% ----------------------------Question 5-------------------------------------------%
 
 declare 
 proc {BrowseNumber N}
@@ -116,8 +121,8 @@ end
 
 
 % ----------------------------------------------------------------------------------%
+%-------------------------------------ExoSup----------------------------------------%
 
-% exo supplementaire
 
 
 % Question 1 - Test primalite // On peut faire aussi une version avec local in
